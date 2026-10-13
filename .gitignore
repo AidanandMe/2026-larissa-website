@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Netlify
+.netlify/
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+*.tmp

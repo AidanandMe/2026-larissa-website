@@ -1,0 +1,7 @@
+node_modules
+.netlify
+package.json
+package-lock.json
+*.docx
+squarespace_embed_instructions.md
+materials/README.md
