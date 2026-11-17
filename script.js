@@ -122,4 +122,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Speaking Engagement CTA Pre-fill & Focus ---
+    const bookSpeakingBtn = document.getElementById('book-speaking-btn');
+    if (bookSpeakingBtn) {
+        bookSpeakingBtn.addEventListener('click', () => {
+            const subjectInput = document.getElementById('form-subject');
+            const messageInput = document.getElementById('form-message');
+            if (subjectInput) {
+                subjectInput.value = 'Speaking Request (Guest Lecture / Seminar / Keynote)';
+            }
+            if (messageInput) {
+                setTimeout(() => {
+                    messageInput.focus();
+                }, 500);
+            }
+        });
+    }
+
 });

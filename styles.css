@@ -353,6 +353,85 @@ section {
     100% { transform: scaleY(0.3); transform-origin: bottom; }
 }
 
+/* Research Themes Marquee */
+.research-marquee {
+    background-color: var(--color-paper-dark);
+    border-top: 1px solid rgba(26, 26, 26, 0.08);
+    border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 1.15rem 0;
+    position: relative;
+    z-index: 5;
+}
+
+.research-marquee::before,
+.research-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.research-marquee::before {
+    left: 0;
+    background: linear-gradient(to right, var(--color-paper-dark), transparent);
+}
+
+.research-marquee::after {
+    right: 0;
+    background: linear-gradient(to left, var(--color-paper-dark), transparent);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 42s linear infinite;
+}
+
+.research-marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    padding-right: 1.8rem;
+}
+
+.marquee-content span {
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-obsidian);
+}
+
+.marquee-content .marquee-sep {
+    color: var(--color-clay);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+    }
+}
+
 /* Signature Quote Banner */
 .signature-banner {
     background-color: var(--color-obsidian);
@@ -627,6 +706,57 @@ section {
 /* Talks Section */
 .talks-section {
     background-color: var(--color-paper-dark);
+}
+
+/* Speaking CTA Header */
+.speaking-cta-container {
+    text-align: center;
+    margin: -1.2rem auto 3.5rem;
+    max-width: 680px;
+}
+
+.speaking-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    background-color: var(--color-obsidian);
+    color: #FAF7F2;
+    border: 1px solid var(--color-obsidian);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 16px rgba(26, 26, 26, 0.1);
+}
+
+.speaking-cta-btn:hover {
+    background-color: var(--color-clay);
+    border-color: var(--color-clay);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(179, 94, 70, 0.28);
+}
+
+.speaking-cta-btn .btn-arrow {
+    transition: transform 0.3s ease;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.speaking-cta-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.speaking-cta-subtext {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-top: 0.9rem;
+    line-height: 1.45;
 }
 
 .timeline {
@@ -1139,5 +1269,21 @@ section {
     
     .contact-form-wrapper {
         padding: 2rem;
+    }
+    
+    .marquee-content span {
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
+    }
+    
+    .speaking-cta-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.85rem 1.4rem;
+        font-size: 0.9rem;
+    }
+    
+    .speaking-cta-subtext {
+        font-size: 1.1rem;
     }
 }
